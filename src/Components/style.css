@@ -1,0 +1,49 @@
+#card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,auto);
+    gap: 5px;
+    width: 83%;
+    margin: auto;
+    justify-items: center;
+    border: 2px solid blue;
+    padding: 8px;
+    /* overflow-x: hidden; */
+   
+}
+
+.cardm {
+    border-radius: 5px;
+    text-align: left;
+    width: 345px;
+    margin: auto;
+    height: 342px;
+    overflow: hidden;
+}
+
+iframe{
+    height: 225px;
+    width: 100%;
+}
+
+.title{
+    font-family: "Roboto", "Arial", sans-serif;
+    color: #0F0F0F;
+    font-size: 16px;
+    line-height: 1.8rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#sidebar{
+    width: 15%;
+    border: 2px solid black;
+    height: 100vh;
+    /* margin-left: 20px; */
+}
+
+#container{
+    width: 98%;
+    margin: auto;
+}
