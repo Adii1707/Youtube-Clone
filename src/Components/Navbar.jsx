@@ -1,59 +1,76 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import { Menu } from "@headlessui/react";
 import { BellIcon } from "@heroicons/react/24/outline";
-import { Container } from "./Container";
+import { SearchBar } from "./SearchBar";
 
-export const Navbar = () => {
-  let [query, setQuery] = useState("");
+export const Navbar = ({ handleKeyDown, ToggleSidebar, setQuery }) => {
+  let category = [
+    "Music",
+    "Fitness",
+    "Entertainment",
+    "Movies",
+    "Web Series",
+    "Songs",
+    "Cricket",
+    "Football",
+    "Honey Singh",
+    "Comedy",
+    "News",
+    "Games",
+  ];
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      setQuery(e.target.value);
-    }
+  const HandleClick = (title) => {
+    setQuery(title);
+    //  console.log(title);
   };
 
   return (
-    <div>
-      <div className="shadow-sm flex justify-between mx-auto px-10 ">
-        {/* <div className="flex flex-shrink-0 items-center">
-          <img className="h-8 w-auto" src="./menu.jpg" alt="Menu" />
-        </div> */}
-        <div className="flex flex-shrink-0 items-center gap-4">
-          <img className="h-8 w-auto" src="./menu.jpg" alt="Menu" />
+    <div className="">
+      <div className="Navbar flex justify-between mx-auto px-10 ">
+        <div className="flex flex-shrink-0 mx-4 items-center gap-3">
+          {/* <img
+            onClick={ToggleSidebar}
+            className="h-8 w-auto"
+            src="./menu.jpg"
+            alt="Menu"
+          /> */}
+          
+          <svg
+             onClick={ToggleSidebar}
+             id='menubar'
+             className="ml-[-45px]"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            focusable="false"
+            style={{pointerEvents: '', width: '50%', height: "50%"}}
+          >
+            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+          </svg>
 
           <div className="flex item-center  gap-1">
             <img className="h-8 w-auto" src="./favicon.png" alt="Youtube" />
             <span className="font-bold text-xl">YouTube</span>
           </div>
         </div>
-        <div className="py-2 w-[600px]">
-          <input
-            type="text"
-            name="query"
-            id="price"
-            className="block w-full rounded-full border-0 py-2 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-200 sm:text-sm sm:leading-6"
-            placeholder="Search"
-            onKeyDown={handleKeyDown}
-          />
+        <div className="searchBar py-2 w-[600px]">
+          <SearchBar handleKeyDown={handleKeyDown} />
         </div>
-        {/* <div className="w-[200px] flex justify-between py-4"> */}
-        {/* <div>Notification</div>
-          <div>Profile</div> */}
-        <div className="absolute inset-y-0 right-0 flex items-center pr-2 mx-3 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+        <div className=" absolute  h-12 my-[13px] mx-3 inset-y-0 right-0 flex items-center pr-2  sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <button
             type="button"
-            className="relative rounded-full bg-gray-50 p-1 text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+            className="relative  rounded-full bg-gray-50 p-1 text-gray-600 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
           >
-            {/* <span className="absolute -inset-1.5" /> */}
-            {/* <span className="sr-only">View notifications</span> */}
-            <BellIcon className="h-7 w-7" aria-hidden="true" />
+            <BellIcon className="bellicon h-7 w-7 " aria-hidden="true" />
           </button>
 
           {/* Profile dropdown */}
-          <Menu as="div" className="relative mx-5">
+          <Menu as="div" className="relative mx-3 ">
             <div>
-              <Menu.Button className="relative flex rounded-full bg-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+              <Menu.Button className="relative flex rounded-full bg-gray-100 mr-[-20px] text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                 <span className="absolute -inset-1.5" />
                 <span className="sr-only">Open user menu</span>
                 <img
@@ -66,53 +83,27 @@ export const Navbar = () => {
           </Menu>
         </div>
         {/* ------------------- */}
-        {/* </div> */}
+        {/* </div>  */}
       </div>
 
       {/* Buttons Starts From Here */}
 
-      <div className="max-w-full  flex justify-center gap-5 ">
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Music
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Fitness
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Entertainment
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Movies
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Web Series
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Songs
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Cricket
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Football
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Honey Singh
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Comedy
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          News
-        </button>
-        <button className="shadow-sm bg-gray-100 px-4 py-1 my-3 rounded text-sm text-color-gray-300 font-semibold">
-          Games
-        </button>
+      <div className="catbtn w-full  flex justify-center gap-5 ">
+        {category.map((title) => {
+          return (
+            <button
+              value={title}
+              key={title}
+              onClick={(e) => HandleClick(e.target.value)}
+              className="shadow-sm bg-gray-100 px-4   my-1 rounded text-sm text-color-gray-300 font-semibold"
+            >
+              {title}
+            </button>
+          );
+        })}
       </div>
 
       {/* Card Section Start Here */}
-     
-      <Container query={query} />
     </div>
   );
 };

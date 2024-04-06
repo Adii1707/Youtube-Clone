@@ -1,9 +1,13 @@
-import { Navbar } from "./Components/Navbar";
+// import { Container } from "./Components/Container";
+// import { Navbar } from "./Components/Navbar";
+import { Home } from "./Pages/Home";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar />
+      <Container /> */}
+      <Home />
     </div>
   );
 }

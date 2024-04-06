@@ -1,21 +1,35 @@
-#card{
+.carddiv{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(1,auto);
-    gap: 5px;
-    width: 83%;
+    gap: 10px;
+    width: 92%;
+    margin: auto;
+    justify-items: center;
+    /* border: 2px solid blue; */
+    padding: 8px;
+    margin-left: 70px;
+
+    /* overflow-x: hidden; */
+   
+}
+
+.carddiv.active{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(1,auto);
+    gap: 9px;
+    width: 90%;
     margin: auto;
     justify-items: center;
     border: 2px solid blue;
     padding: 8px;
-    /* overflow-x: hidden; */
-   
 }
 
 .cardm {
     border-radius: 5px;
     text-align: left;
-    width: 345px;
+    width: 305px;
     margin: auto;
     height: 342px;
     overflow: hidden;
@@ -36,14 +50,80 @@ iframe{
     text-overflow: ellipsis;
 }
 
-#sidebar{
+.sidebarm.active{
     width: 15%;
-    border: 2px solid black;
-    height: 100vh;
-    /* margin-left: 20px; */
 }
 
 #container{
     width: 98%;
     margin: auto;
 }
+
+svg#search-icon {
+    background-color: transparent;
+    border: 1.5px solid lightgray;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    height: 41.6px !important;
+}
+
+#price {
+    border: 1.5px solid lightgray !important;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    border-right: none !important;
+}
+
+@media only screen and (max-width: 500px) {
+    .carddiv {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(1,auto);
+        gap: 10px;
+        width: 98%;
+        margin: auto;
+        justify-items: center;
+        /* border: 2px solid blue; */
+        padding: 8px;
+        padding-bottom: 60px;
+        /* overflow-x: hidden; */
+       
+    }
+
+    .cardm {
+        margin-right: 5px;
+        border-radius: 15px;
+        text-align: left;
+        width: 365px;
+        margin: auto;
+        height: 342px;
+        overflow: hidden;
+        opacity: 1;
+        text-transform: capitalize;
+    }
+
+    .catbtn{
+        /* display: none; */
+        overflow-x: hidden;
+    }
+    .searchBar{
+      display: none;
+    }
+    #menubar{
+        display: none;
+    }
+    .bellicon{
+        display: none;
+    }
+    .Navbar{
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 10px;
+        height: 80px;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        /* border: 2px solid red; */
+    }
+  }
