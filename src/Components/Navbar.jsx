@@ -45,14 +45,14 @@ export const Navbar = ({ handleKeyDown, ToggleSidebar, setQuery }) => {
             viewBox="0 0 24 24"
             width="24"
             focusable="false"
-            style={{pointerEvents: '', width: '50%', height: "50%"}}
+            style={{pointerEvents: '', width: '35px', height: "30px", cursor: "pointer"}}
           >
             <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
           </svg>
 
           <div className="flex item-center  gap-1">
-            <img className="h-8 w-auto" src="./favicon.png" alt="Youtube" />
-            <span className="font-bold text-xl">YouTube</span>
+            <img className="h-7 w-auto mt-[-8px]"  src="../img/logo.PNG" alt="Youtube" />
+            {/* <span className="font-bold text-xl">YouTube</span> */}
           </div>
         </div>
         <div className="searchBar py-2 w-[600px]">
@@ -88,14 +88,14 @@ export const Navbar = ({ handleKeyDown, ToggleSidebar, setQuery }) => {
 
       {/* Buttons Starts From Here */}
 
-      <div className="catbtn w-full  flex justify-center gap-5 ">
+      <div className="filters w-full  flex justify-center gap-5 ">
         {category.map((title) => {
           return (
             <button
               value={title}
               key={title}
               onClick={(e) => HandleClick(e.target.value)}
-              className="shadow-sm bg-gray-100 px-4   my-1 rounded text-sm text-color-gray-300 font-semibold"
+              className="filter-options shadow-sm bg-gray-100 px-4   my-1 rounded text-sm text-color-gray-300 font-semibold"
             >
               {title}
             </button>

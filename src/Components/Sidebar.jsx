@@ -3,13 +3,11 @@ import "./sidebar.css";
 
 export const Sidebar = ({ isOpen }) => {
 
-console.log(isOpen)
+// console.log(isOpen)
 
   return (
-    <div className={`sidebar ${isOpen == true ? "active" : ""}`}>
-      {/* <div className="sd-header">
-        <h4 className="mb-0">Sidebar Header</h4>
-      </div> */}
+    <div className={`sidebar ${isOpen === true ? "active" : ""}`}>
+      
       {
         isOpen? <div className="sd-body">
         <ul>
@@ -113,7 +111,7 @@ console.log(isOpen)
                 width="18"
                 focusable="false"
                 className="bg-['new 0 0 24 24']"
-                // style={{pointerEvents: 'none', display: 'inherit', width: '100%', height: '100%'}}
+                
                 
               >
                 <path d="m12 4.44 7 6.09V20h-4v-6H9v6H5v-9.47l7-6.09m0-1.32-8 6.96V21h6v-6h4v6h6V10.08l-8-6.96z"></path>
