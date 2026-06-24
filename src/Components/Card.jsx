@@ -1,44 +1,34 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Card = ({ data }) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const HandleClick = () => {
-    navigate(`/video/${data.id.videoId}`);
-  };
+  // Search API returns id.videoId; Trending API returns id as a plain string
+  const videoId = typeof data.id === "string" ? data.id : data.id?.videoId;
+
+  if (!videoId) return null;
+
+  const title = data.snippet?.title || "";
+  const isShort =
+    title.toLowerCase().includes("shorts") ||
+    title.toLowerCase().includes("#shorts");
+
+  if (isShort) return null;
 
   return (
-    <>
-      {data.snippet.title.toLowerCase().search(`${"shorts" || "#shorts"}`) ===
-      -1 ? (
-        <div
-          onClick={HandleClick}
-          className="cardm  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300"
-        >
-          <img
-            className="thumbnail"
-            src={data.snippet.thumbnails.high.url}
-            alt="img"
-          />
-          {/* <iframe
-        title={data.id.videoId}
-        className="rounded-lg shadow-md"
-        href={`${data.snippet.thumbnails.high.url}`}
-        src={`https://www.youtube.com/embed/${data.id.videoId}`}
-        allow="fullscreen"
-      ></iframe> */}
-          <p
-            class="title"
-            className="text-gray-800 text-md font-semibold mb-2 "
-          >
-            {data.snippet.title}
-          </p>
-          <p className="text-gray-600">{data.snippet.channelTitle}</p>
-        </div>
-      ) : (
-        ""
-      )}
-    </>
+    <div
+      onClick={() => navigate(`/video/${videoId}`)}
+      className="cardm transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300"
+    >
+      <img
+        className="thumbnail"
+        src={data.snippet.thumbnails?.high?.url || data.snippet.thumbnails?.medium?.url}
+        alt={title}
+      />
+      <p className="text-gray-800 text-md font-semibold mb-1 mt-1 line-clamp-2 leading-snug">
+        {title}
+      </p>
+      <p className="text-gray-500 text-sm">{data.snippet.channelTitle}</p>
+    </div>
   );
 };

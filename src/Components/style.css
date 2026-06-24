@@ -40,9 +40,16 @@
     /* border: 2px solid red; */
 }
 
-iframe{
+.cardm iframe{
     height: 225px;
     width: 100%;
+}
+
+/* Single video page player */
+.singlevideo-player {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .thumbnail{

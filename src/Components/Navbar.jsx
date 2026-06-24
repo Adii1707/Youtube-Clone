@@ -4,7 +4,7 @@ import { Menu } from "@headlessui/react";
 import { BellIcon } from "@heroicons/react/24/outline";
 import { SearchBar } from "./SearchBar";
 
-export const Navbar = ({ handleKeyDown, ToggleSidebar, setQuery }) => {
+export const Navbar = ({ ToggleSidebar, setQuery }) => {
   let category = [
     "Music",
     "Fitness",
@@ -56,7 +56,7 @@ export const Navbar = ({ handleKeyDown, ToggleSidebar, setQuery }) => {
           </div>
         </div>
         <div className="searchBar py-2 w-[600px]">
-          <SearchBar handleKeyDown={handleKeyDown} />
+          <SearchBar setQuery={setQuery} />
         </div>
 
         <div className=" absolute  h-12 my-[13px] mx-3 inset-y-0 right-0 flex items-center pr-2  sm:static sm:inset-auto sm:ml-6 sm:pr-0">
